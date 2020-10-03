@@ -5,6 +5,5 @@ __pycache__/
 allure_generate/
 execute_tests/
 supro_env
-config.py
 tests/allure-results
 tests/cookies.pkl
