@@ -1,0 +1,10 @@
+__pycache__/
+.env
+.idea
+.pytest_cache/
+allure_generate/
+execute_tests/
+supro_env
+config.py
+tests/allure-results
+tests/cookies.pkl
