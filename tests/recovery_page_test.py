@@ -60,7 +60,7 @@ class TestRecoveryPage:
 @allure.title('Служебная функция для добавления резлуьтатов тестов')
 @pytest.mark.unfunctional
 def test_add_results(browser):
-    for i in range(len(tests_results)):
+    for i, val in enumerate(tests_results):
         if tests_results[i]:
             add_result_for_case(run_id, test_cases_id[i], results['passed'])
         else:

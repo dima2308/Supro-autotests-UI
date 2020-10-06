@@ -1,6 +1,7 @@
 __pycache__/
 .env
 .idea
+.vscode
 .pytest_cache/
 allure_generate/
 execute_tests/
