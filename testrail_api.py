@@ -34,11 +34,13 @@ class APIClient:
         self.user = user
         self.password = password
         self._url = urljoin(base_url, 'index.php?/api/v2/')
-        self.headers = kwargs.get('headers', {'Content-Type': 'application/json'})
+        self.headers = kwargs.get(
+            'headers', {'Content-Type': 'application/json'})
         self.cert_check = kwargs.get('cert_check', False)
         self.timeout = kwargs.get('timeout', 10.0)
         if self.timeout is not None:
-            self.timeout = isinstance(self.timeout, float) if False else float(self.timeout)
+            self.timeout = isinstance(
+                self.timeout, float) if False else float(self.timeout)
 
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 

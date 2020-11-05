@@ -5,7 +5,7 @@ class RecoveryPage(BasePage):
     def __init__(self, driver, url):
         super().__init__(driver)
         self.base_url = url
-        
+
     def enter_email(self, locator, value):
         email = self.find_element(locator)
         email.send_keys(value)

@@ -9,13 +9,18 @@ links_locators = [(MainPageLocators.NEW_SUGGEST_BUTTON, 'Создать ново
                   (MainPageLocators.OFFERS_LINK, 'Предложения'),
                   (MainPageLocators.TYPES_PRODUCTS_LINK, 'Виды продуктов'),
                   (MainPageLocators.PRODUCTS_LINK, 'Продукты'),
-                  (MainPageLocators.PRODUCTS_PARAMS_LINK, 'Виды параметров продуктовых предложений'),
+                  (MainPageLocators.PRODUCTS_PARAMS_LINK,
+                   'Виды параметров продуктовых предложений'),
                   (MainPageLocators.CLIENT_SEGMENTS, 'Клиентские сегменты'),
-                  (MainPageLocators.OFFERS_RELATIONSHIPS_LINK, 'Зависимости предложений'),
+                  (MainPageLocators.OFFERS_RELATIONSHIPS_LINK,
+                   'Зависимости предложений'),
                   (MainPageLocators.OFFERED_PRODUCTS_LINK, 'Предлагаемые продукты'),
-                  (MainPageLocators.OFFERS_PARAMS_LINK, 'Параметры предлагаемых продуктов'),
-                  (MainPageLocators.OFFERS_SEGMENTS_LINK, 'Предложения для клиентских сегментов'),
-                  (MainPageLocators.PHONES_SEGMENTS, 'Телефоны клиентского сегмента'),
+                  (MainPageLocators.OFFERS_PARAMS_LINK,
+                   'Параметры предлагаемых продуктов'),
+                  (MainPageLocators.OFFERS_SEGMENTS_LINK,
+                   'Предложения для клиентских сегментов'),
+                  (MainPageLocators.PHONES_SEGMENTS,
+                   'Телефоны клиентского сегмента'),
                   (MainPageLocators.SALES_LINK, 'Дополнительные продажи за год'),
                   # (MainPageLocators.USERS_LINK, 'Пользователи'),
                   (MainPageLocators.CACHING_LINK, 'Управление кэшированием'),
@@ -30,7 +35,8 @@ links_names = ['Create new offer', 'Create new product', 'Types offers',
 
 invalid_emails = ['ff', 'Йцукен', '1мf', '@', '@mail.ru', '.ru']
 
-info_boxes = ['ДЕЙСТВУЮЩИЕ ПРЕДЛОЖЕНИЯ', 'ПРЕДЛАГАЕМЫЕ ПРОДУКТЫ', 'ВСЕГО ПРОДУКТОВ', 'БАННЕРОВ АКТИВНО']
+info_boxes = ['ДЕЙСТВУЮЩИЕ ПРЕДЛОЖЕНИЯ', 'ПРЕДЛАГАЕМЫЕ ПРОДУКТЫ',
+              'ВСЕГО ПРОДУКТОВ', 'БАННЕРОВ АКТИВНО']
 
 test_data_recovery = [
     (main_url + '/user/forgot', RecoveryPageLocators.EMAIL_FIELD_PASSWORD),

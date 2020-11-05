@@ -13,7 +13,7 @@ url = '/cache'
 
 @allure.epic('Страница "Кэширование"')
 class TestCachePage:
-    # 1 
+    # 1
     @allure.title('Кэш отсутствует')
     def test_check_empty_cache(self, browser):
         page = CachePage(browser, url)
@@ -22,8 +22,8 @@ class TestCachePage:
         page.remove_all_cache()
 
         assert page.is_element_present(TC.TABLE_EMPTY_BODY)
-    
-    # 2 
+
+    # 2
     @allure.title('Кэш присутствует')
     @allure.testcase('https://qa-tr.it.orglot.office/testrail/index.php?/cases/view/756201')
     def test_check_cache(self, browser, get_suggestions):
@@ -36,7 +36,7 @@ class TestCachePage:
                                                                                        results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
-    # 3 
+    # 3
     @allure.title('Удаление кэша')
     @allure.testcase('https://qa-tr.it.orglot.office/testrail/index.php?/cases/view/756203')
     def test_remove_cache_suggest(self, browser, get_suggestions):
@@ -51,7 +51,7 @@ class TestCachePage:
                                                                                            results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
-    # 4 
+    # 4
     @allure.title('Изменение времени жизни кэша')
     @allure.testcase('https://qa-tr.it.orglot.office/testrail/index.php?/cases/view/756202')
     def test_edit_cache_suggest(self, browser, get_suggestions):
@@ -76,13 +76,15 @@ class TestCachePage:
         page.get_cookies()
         current_key = page.get_value_from_table(SC.CACHE_KEY)
         page.check_cache()
-        box_title_key = page.get_value_from_table(SC.CACHE_BOX_TITLE).split()[2]
+        box_title_key = page.get_value_from_table(
+            SC.CACHE_BOX_TITLE).split()[2]
 
-        assert box_title_key == current_key, add_result_for_case(run_id, case_id, results['failed'])
+        assert box_title_key == current_key, add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 6
-    @allure.title('Проверка полей вида предложения')
+    @allure.title('Проверка полей кэша')
     @allure.testcase('https://qa-tr.it.orglot.office/testrail/index.php?/cases/view/756205')
     def test_check_values_cache_suggest(self, browser, get_suggestions):
         case_id = 756205
@@ -91,5 +93,6 @@ class TestCachePage:
         page.get_cookies()
         page = TaskPage(browser, url)
 
-        assert page.check_field_values_from_table(), add_result_for_case(run_id, case_id, results['failed'])
+        assert page.check_field_values_from_table(), add_result_for_case(run_id,
+                                                                         case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])

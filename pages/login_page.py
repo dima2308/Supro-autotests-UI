@@ -13,6 +13,6 @@ class LoginPage(BasePage):
 
     def get_the_checkbox(self):
         return self.find_element(LoginPageLocators.CHECKBOX_REMEMBER)
-    
+
     def click_on_the_checkbox(self):
         return self.get_the_checkbox().click()

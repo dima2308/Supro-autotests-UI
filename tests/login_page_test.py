@@ -77,7 +77,7 @@ class TestNegativeLoginPage:
 @allure.epic('Авторизация')
 @allure.feature('Позитивные тесты')
 class TestPositiveLoginPage:
-    # 5  
+    # 5
     @allure.title('Проверка чекбокса "Запомнить меня"')
     def test_check_remember_button(self, browser):
         page = LoginPage(browser)
@@ -133,9 +133,11 @@ class TestPositiveLoginPage:
         page.click_on_the_checkbox()
         page.click_on_the_button(LoginPageLocators.LOGIN_BUTTON)
 
-        assert page.check_current_title('Панель управления'), add_result_for_case(run_id, case_id, results['failed'])
+        assert page.check_current_title('Панель управления'), add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
-        
+
         with allure.step('Cкриншот'):
-            allure.attach(browser.get_screenshot_as_png(), name='Screen', attachment_type=AttachmentType.PNG)
+            allure.attach(browser.get_screenshot_as_png(),
+                          name='Screen', attachment_type=AttachmentType.PNG)
         pickle.dump(browser.get_cookies(), open("cookies.pkl", "wb"))

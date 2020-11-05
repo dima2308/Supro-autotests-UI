@@ -17,7 +17,7 @@ test_titles = ['Забыли пароль?', 'Повторная отправк�
 @allure.feature('Проверка валидации')
 class TestRecoveryPage:
 
-    # 1 
+    # 1
     @allure.title('Некорректный ввод email')
     def test_enter_invalid_emails(self, browser, url, locator):
         error_text = 'Значение «Email» не является правильным email адресом.'
@@ -28,7 +28,8 @@ class TestRecoveryPage:
             email_field.clear()
             page.enter_email(locator, i)
             page.click_on_the_button(RecoveryPageLocators.SUBMIT_BUTTON)
-            assert page.check_text_element(RecoveryPageLocators.ERROR, error_text)
+            assert page.check_text_element(
+                RecoveryPageLocators.ERROR, error_text)
 
         tests_results.append(True)
 
@@ -53,7 +54,8 @@ class TestRecoveryPage:
         page.enter_email(locator, 'd@mail.abasd')
         page.click_on_the_button(RecoveryPageLocators.SUBMIT_BUTTON)
 
-        assert page.get_button(RecoveryPageLocators.SUCCESS_BUTTON), tests_results.append(False)
+        assert page.get_button(
+            RecoveryPageLocators.SUCCESS_BUTTON), tests_results.append(False)
         tests_results.append(True)
 
 

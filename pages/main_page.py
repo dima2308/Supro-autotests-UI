@@ -34,7 +34,7 @@ class MainPage(BasePage):
         self.find_element(MainPageLocators.SIDEBAR_TOGGLE)
         self.find_elements(MainPageLocators.DROPDOWN_TOGGLE)
         return True
-        
+
     def get_user_menu_elements(self):
         self.find_element(MainPageLocators.DROPDOWN_TOGGLE).click()
         self.find_element(MainPageLocators.PROFILE_BUTTON)

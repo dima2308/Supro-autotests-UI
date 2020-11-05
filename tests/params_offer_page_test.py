@@ -42,7 +42,6 @@ class TestProductParamPage:
         page.get_cookies()
         page.click_on_the_button(TotalLocators.LOOK_BUTTON_FROM_TABLE)
         page.click_on_the_button(TotalLocators.CREATE_PARAM_BUTTON)
-        page.enter_type(SC.PARAM_TYPE, 1)
         page.enter_field(SC.PARAM_VALUE, 120)
         name = page.get_text(SC.OFFER_NAME, SC.PRODUCT_NAME)
         page.click_on_the_button(TotalLocators.BUTTON)

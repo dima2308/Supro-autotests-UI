@@ -47,7 +47,9 @@ url = ts['url']
 
 client = APIClient(url, user, password)
 
-id_user = get_user_by_email(email)['id'] if get_user_by_email(email).get('id') else 0
+id_user = get_user_by_email(
+    email)['id'] if get_user_by_email(email).get('id') else 0
 
 # Для тестов
-data = {'status_id': 1, 'comment': None, 'version': '47402', 'elapsed': None, 'defects': None, 'assignedto_id': id_user}
+data = {'status_id': 1, 'comment': None, 'version': '47402',
+        'elapsed': None, 'defects': None, 'assignedto_id': id_user}

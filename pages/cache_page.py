@@ -21,7 +21,7 @@ class CachePage(BasePage):
 
     def check_cache(self):
         return self.find_element(TaskPageLocators.LOOK_BUTTON_FROM_TABLE).click()
-        
+
     def remove_all_cache(self):
         try:
             cache_strings = self.find_elements(CachePageLocators.CACHE_STRINGS)
@@ -29,4 +29,3 @@ class CachePage(BasePage):
                 self.remove_cache()
         except TimeoutException:
             pass
-            

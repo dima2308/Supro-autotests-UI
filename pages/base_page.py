@@ -29,14 +29,14 @@ class BasePage:
     def check_text_element(self, locator, text, time=5):
         return WebDriverWait(self.driver, time).until(EC.text_to_be_present_in_element(locator, text),
                                                       message=f"Can't find text {text} by locator {locator}")
-    
+
     def get_cookies(self):
         if os.path.isfile("cookies.pkl"):
             with open("cookies.pkl", "rb") as file:
                 cookies = pickle.load(file)
         else:
             raise Exception('Cookies not found')
-        
+
         for cookie in cookies:
             if 'expiry' in cookie:
                 cookie['expiry'] = int(cookie['expiry'])
@@ -52,4 +52,4 @@ class BasePage:
         return True
 
     def click_on_the_button(self, locator):
-        return self.find_element(locator).click()       
+        return self.find_element(locator).click()

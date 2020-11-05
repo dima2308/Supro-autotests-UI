@@ -22,7 +22,8 @@ class TestMainPage:
         main_page.go_to_site()
         main_page.get_cookies()
 
-        assert main_page.get_info_boxes_info(), add_result_for_case(run_id, case_id, results['failed'])
+        assert main_page.get_info_boxes_info(), add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 2
@@ -33,7 +34,8 @@ class TestMainPage:
         main_page = MainPage(browser)
         main_page.go_to_site()
 
-        assert main_page.get_header_elements(), add_result_for_case(run_id, case_id, results['failed'])
+        assert main_page.get_header_elements(), add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 3
@@ -57,7 +59,8 @@ class TestMainPage:
         main_page = MainPage(browser)
         main_page.go_to_site()
 
-        assert main_page.get_user_menu_elements(), add_result_for_case(run_id, case_id, results['failed'])
+        assert main_page.get_user_menu_elements(), add_result_for_case(run_id,
+                                                                       case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 5
@@ -69,7 +72,8 @@ class TestMainPage:
         main_page.go_to_site()
         main_page.click_on_link(locator)
 
-        assert main_page.check_current_title(title), tests_results.append(False)
+        assert main_page.check_current_title(
+            title), tests_results.append(False)
 
     # 6
     @allure.title('Выход из системы')
@@ -81,7 +85,8 @@ class TestMainPage:
         browser.delete_all_cookies()
         main_page.go_to_profile(MainPageLocators.LOG_OUT_BUTTON)
 
-        assert main_page.check_current_title('СУПРО'), add_result_for_case(run_id, case_id, results['failed'])
+        assert main_page.check_current_title('СУПРО'), add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
 

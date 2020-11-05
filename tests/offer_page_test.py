@@ -39,6 +39,7 @@ class TestOfferPage:
         page.click_on_the_button(TotalLocators.BUTTON)
         page.enter_field(SC.OFFER_NAME, type_offer_name)
         page.enter_field(SC.OFFER_COMMENT, 'test_comment')
+        page.click_on_the_button(SC.OFFER_CONTEXT)
         page.enter_type(SC.OFFER_TYPE, 1)
         page.enter_date(SC.OFFER_START_DATE, '2020-03-12 14:50:30')
         page.enter_date(SC.OFFER_FINISH_DATE, '2021-03-12 14:50:30')

@@ -43,7 +43,8 @@ class TestTypeOfferPage:
         page.enter_field(SC.OFFER_TYPE_COMMENT, 'test_comment')
         page.click_on_the_button(TotalLocators.BUTTON)
 
-        assert page.check_current_title(type_offer_name), add_result_for_case(run_id, case_id, results['failed'])
+        assert page.check_current_title(type_offer_name), add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 3
@@ -56,7 +57,8 @@ class TestTypeOfferPage:
         page.go_to_site()
         page.check_values_from_table(type_offer_name)
 
-        assert page.check_field_values_from_table(), add_result_for_case(run_id, case_id, results['failed'])
+        assert page.check_field_values_from_table(), add_result_for_case(run_id,
+                                                                         case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 4
@@ -83,7 +85,8 @@ class TestTypeOfferPage:
         page.check_values_from_table(type_offer_name)
         page.remove_type_step_one()
 
-        assert page.get_remove_flag(), add_result_for_case(run_id, case_id, results['failed'])
+        assert page.get_remove_flag(), add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 6
@@ -97,5 +100,6 @@ class TestTypeOfferPage:
         page.check_values_from_table(type_offer_name)
         page.remove_type_step_two()
 
-        assert page.get_name_from_table() != type_offer_name, add_result_for_case(run_id, case_id, results['failed'])
+        assert page.get_name_from_table() != type_offer_name, add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])

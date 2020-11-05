@@ -7,10 +7,10 @@ if os.path.exists(dotenv_path):
 
 # TestRail Data
 testrail_data = {
-    'user': os.environ.get('TESTRAIL_USER'), # your user name 
-    'password': os.environ.get('TESTRAIL_PASSWORD'), # your password
-    'email': os.environ.get('TESTRAIL_EMAIL'), # your email
-    'url': os.environ.get('TESTRAIL_HOST') # testrail host
+    'user': os.environ.get('TESTRAIL_USER'),  # your user name
+    'password': os.environ.get('TESTRAIL_PASSWORD'),  # your password
+    'email': os.environ.get('TESTRAIL_EMAIL'),  # your email
+    'url': os.environ.get('TESTRAIL_HOST')  # testrail host
 }
 
 # Hosts
@@ -18,8 +18,8 @@ main_url = os.environ.get('SUPRO_BACK_HOST')
 api_url = os.environ.get('SUPRO_API_HOST')
 
 # Auth data
-email = os.environ.get('SUPRO_EMAIL') # your email
-password = os.environ.get('SUPRO_PASSWORD') # your password
+email = os.environ.get('SUPRO_EMAIL')  # your email
+password = os.environ.get('SUPRO_PASSWORD')  # your password
 
 # Testrun IDs
 run_id_auth = -1

@@ -49,7 +49,8 @@ class TaskPage(BasePage):
         fields_values = self.get_fields_values_from_table()
         self.find_element(TaskPageLocators.EDIT_BUTTON_FROM_TABLE).click()
         self.find_element(locator).clear()
-        self.enter_field(locator, 'New comment-{}'.format(random.randint(0, 100)))
+        self.enter_field(
+            locator, 'New comment-{}'.format(random.randint(0, 100)))
         self.click_on_the_button(TaskPageLocators.BUTTON)
 
         return fields_values
