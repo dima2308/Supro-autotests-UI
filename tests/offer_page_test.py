@@ -1,13 +1,16 @@
 import allure
 
-from pages.task_page import TaskPage
-from pages.locators import TaskPageLocators as TotalLocators, OfferPageLocators as SC
-from testrail_methods import add_result_for_case
 from config import run_id_tasks as run_id
+from pages.locators import OfferPageLocators as SC
+from pages.locators import TaskPageLocators as TotalLocators
+from pages.task_page import TaskPage
 from test_data import results_codes as results
+from testrail_methods import add_result_for_case
+from utils import get_start_and_end_dates
 
 type_offer_name = 'Test creation new offer'
 url = '/offer'
+start_date, end_date = get_start_and_end_dates()
 
 
 @allure.epic('Страница "Предложения"')
@@ -25,7 +28,8 @@ class TestOfferPage:
         current_url = browser.current_url
         page.click_on_the_button(TotalLocators.BUTTON)
 
-        assert current_url == browser.current_url, add_result_for_case(run_id, case_id, results['failed'])
+        assert current_url == browser.current_url, add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 2
@@ -41,12 +45,12 @@ class TestOfferPage:
         page.enter_field(SC.OFFER_COMMENT, 'test_comment')
         page.click_on_the_button(SC.OFFER_CONTEXT)
         page.enter_type(SC.OFFER_TYPE, 1)
-        page.enter_date(SC.OFFER_START_DATE, '2020-03-12 14:50:30')
-        page.enter_date(SC.OFFER_FINISH_DATE, '2021-03-12 14:50:30')
-
+        page.enter_date(SC.OFFER_START_DATE, start_date)
+        page.enter_date(SC.OFFER_FINISH_DATE, end_date)
         page.click_on_the_button(TotalLocators.BUTTON)
 
-        assert page.check_current_title(type_offer_name), add_result_for_case(run_id, case_id, results['failed'])
+        assert page.check_current_title(type_offer_name), add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 3
@@ -60,7 +64,8 @@ class TestOfferPage:
         page.get_cookies()
         page.check_values_from_table(type_offer_name)
 
-        assert page.check_field_values_from_table(), add_result_for_case(run_id, case_id, results['failed'])
+        assert page.check_field_values_from_table(), add_result_for_case(run_id,
+                                                                         case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 4
@@ -73,8 +78,9 @@ class TestOfferPage:
         page.go_to_site()
         page.get_cookies()
         page.check_values_from_table(type_offer_name)
-        
-        assert page.check_edit(SC.OFFER_COMMENT, 'Комментарий'), add_result_for_case(run_id, case_id, results['failed'])
+
+        assert page.check_edit(SC.OFFER_COMMENT, 'Комментарий'), add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 5
@@ -89,7 +95,8 @@ class TestOfferPage:
         page.check_values_from_table(type_offer_name)
         page.remove_type_step_one()
 
-        assert page.get_remove_flag(), add_result_for_case(run_id, case_id, results['failed'])
+        assert page.get_remove_flag(), add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 6
@@ -104,5 +111,6 @@ class TestOfferPage:
         page.check_values_from_table(type_offer_name)
         page.remove_type_step_two()
 
-        assert page.get_name_from_table() != type_offer_name, add_result_for_case(run_id, case_id, results['failed'])
+        assert page.get_name_from_table() != type_offer_name, add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])

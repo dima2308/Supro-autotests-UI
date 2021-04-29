@@ -1,9 +1,11 @@
 import allure
-from pages.locators import ClientSegmentsLocator as SC, TaskPageLocators as TotalLocators
-from pages.task_page import TaskPage
-from testrail_methods import add_result_for_case
+
 from config import run_id_tasks as run_id
+from pages.locators import ClientSegmentsLocators as SC
+from pages.locators import TaskPageLocators as TotalLocators
+from pages.task_page import TaskPage
 from test_data import results_codes as results
+from testrail_methods import add_result_for_case
 
 segment_name = 'Test creation segment'
 url = '/client-segment'

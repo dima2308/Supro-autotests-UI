@@ -1,13 +1,14 @@
-import pytest
-import allure
 import pickle
+import allure
+import pytest
 
-from pages.login_page import LoginPage
-from pages.locators import LoginPageLocators
-from testrail_methods import add_result_for_case
-from config import email, password, run_id_auth as run_id
-from test_data import results_codes as results
 from allure_commons.types import AttachmentType
+from config import email, password
+from config import run_id_auth as run_id
+from pages.locators import LoginPageLocators
+from pages.login_page import LoginPage
+from test_data import results_codes as results
+from testrail_methods import add_result_for_case
 
 
 @allure.epic('Авторизация')

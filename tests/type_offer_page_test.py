@@ -1,10 +1,11 @@
 import allure
 
-from pages.task_page import TaskPage
-from pages.locators import TypeOfferPageLocators as SC, TaskPageLocators as TotalLocators
-from testrail_methods import add_result_for_case
 from config import run_id_tasks as run_id
+from pages.locators import TaskPageLocators as TotalLocators
+from pages.locators import TypeOfferPageLocators as SC
+from pages.task_page import TaskPage
 from test_data import results_codes as results
+from testrail_methods import add_result_for_case
 
 type_offer_name = 'Test creation new type offer'
 url = '/offer-type'

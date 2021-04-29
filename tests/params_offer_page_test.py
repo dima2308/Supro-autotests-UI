@@ -1,10 +1,11 @@
 import allure
 
-from pages.task_page import TaskPage
-from pages.locators import TaskPageLocators as TotalLocators, ParamsPageLocators as SC
-from testrail_methods import add_result_for_case
 from config import run_id_tasks as run_id
+from pages.locators import ParamsPageLocators as SC
+from pages.locators import TaskPageLocators as TotalLocators
+from pages.task_page import TaskPage
 from test_data import results_codes as results
+from testrail_methods import add_result_for_case
 
 param_name = 'New param'
 url = '/offer-product-param'
@@ -28,7 +29,8 @@ class TestProductParamPage:
         current_url = browser.current_url
         page.click_on_the_button(TotalLocators.BUTTON)
 
-        assert current_url == browser.current_url, add_result_for_case(run_id, case_id, results['failed'])
+        assert current_url == browser.current_url, add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 2
@@ -46,7 +48,8 @@ class TestProductParamPage:
         name = page.get_text(SC.OFFER_NAME, SC.PRODUCT_NAME)
         page.click_on_the_button(TotalLocators.BUTTON)
 
-        assert page.check_current_title(name), add_result_for_case(run_id, case_id, results['failed'])
+        assert page.check_current_title(name), add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 3
@@ -59,7 +62,8 @@ class TestProductParamPage:
         page.go_to_site()
         page.get_cookies()
 
-        assert page.check_field_values_from_table(), add_result_for_case(run_id, case_id, results['failed'])
+        assert page.check_field_values_from_table(), add_result_for_case(run_id,
+                                                                         case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 4
@@ -71,7 +75,9 @@ class TestProductParamPage:
         page = TaskPage(browser, url)
         page.go_to_site()
         page.get_cookies()
-        assert page.check_edit(SC.PARAM_VALUE, 'Значение'), add_result_for_case(run_id, case_id, results['failed'])
+
+        assert page.check_edit(SC.PARAM_VALUE, 'Значение'), add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 5
@@ -85,7 +91,8 @@ class TestProductParamPage:
         page.get_cookies()
         page.remove_type_step_one()
 
-        assert page.get_remove_flag(), add_result_for_case(run_id, case_id, results['failed'])
+        assert page.get_remove_flag(), add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])
 
     # 6
@@ -99,5 +106,6 @@ class TestProductParamPage:
         page.get_cookies()
         page.remove_type_step_two()
 
-        assert page.get_name_from_table() != param_name, add_result_for_case(run_id, case_id, results['failed'])
+        assert page.get_name_from_table() != param_name, add_result_for_case(
+            run_id, case_id, results['failed'])
         add_result_for_case(run_id, case_id, results['passed'])

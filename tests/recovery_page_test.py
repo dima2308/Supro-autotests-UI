@@ -1,11 +1,13 @@
-import pytest
 import allure
+import pytest
 
-from pages.recovery_page import RecoveryPage
-from pages.locators import RecoveryPageLocators
-from testrail_methods import add_result_for_case
 from config import run_id_auth as run_id
-from test_data import results_codes as results, invalid_emails, test_data_recovery as test_data
+from pages.locators import RecoveryPageLocators
+from pages.recovery_page import RecoveryPage
+from test_data import invalid_emails
+from test_data import results_codes as results
+from test_data import test_data_recovery as test_data
+from testrail_methods import add_result_for_case
 
 tests_results = []
 test_cases_id = [724583, 724584, 724585, 724588, 724589, 724590]
@@ -46,7 +48,6 @@ class TestRecoveryPage:
 
     # 3
     @allure.title('Корректный email')
-    # @pytest.mark.skip(reason="В целях тестов")
     @pytest.mark.important
     def test_enter_success_email(self, browser, url, locator):
         page = RecoveryPage(browser, url)

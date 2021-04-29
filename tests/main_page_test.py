@@ -1,10 +1,10 @@
-﻿import pytest
-import allure
-
-from pages.main_page import MainPage
-from pages.locators import MainPageLocators
+﻿import allure
+import pytest
 from config import run_id_main as run_id
-from test_data import links_locators, links_names, results_codes as results
+from pages.locators import MainPageLocators
+from pages.main_page import MainPage
+from test_data import links_locators, links_names
+from test_data import results_codes as results
 from testrail_methods import add_result_for_case
 
 tests_results = []
