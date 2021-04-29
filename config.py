@@ -27,4 +27,4 @@ run_id_main = -1
 run_id_tasks = -1
 
 # Release version
-build_version = '47402'
+build_version = '2021.03.18'

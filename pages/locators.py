@@ -114,6 +114,11 @@ class CachePageLocators:
         By.CSS_SELECTOR, "tbody tr td:last-child a[aria-label='Удалить']")
 
 
-class ClientSegmentsLocator:
+class ClientSegmentsLocators:
     SEGMENT_NAME = (By.ID, "clientsegment-name")
     SEGMENT_COMMENT = (By.ID, "clientsegment-comment")
+
+
+class OfferDependencyLocators:
+    OFFER = (By.NAME, "OfferDependency[offer_id]")
+    PRODUCT = (By.NAME, "OfferDependency[product_id]")

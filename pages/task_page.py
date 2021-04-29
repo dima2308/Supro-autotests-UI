@@ -89,7 +89,12 @@ class TaskPage(BasePage):
     def enter_type(self, locator, value):
         offer_type = Select(self.find_element(locator))
         offer_type.select_by_index(value)
-        return offer_type
+        return offer_type.first_selected_option.text
+
+    def enter_type_of_value(self, locator, value):
+        offer_type = Select(self.find_element(locator))
+        offer_type.select_by_visible_text(value)
+        return offer_type.first_selected_option.text
 
     def get_text(self, locator_offer, locator_product):
         text_offer = self.find_element(locator_offer).text
