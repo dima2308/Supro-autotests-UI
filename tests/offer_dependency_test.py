@@ -1,7 +1,7 @@
 import time
-
 import allure
 import pytest
+
 from config import run_id_tasks as run_id
 from utils import get_start_and_end_dates
 from pages.locators import OfferDependencyLocators as OD
@@ -35,6 +35,7 @@ class TestOfferDependecy:
         assert page.check_current_title(offer_name)
 
     def test_create_offer_dependency_with_empty_name(self, create_offer, browser):
+        case_id = 735324
         page = TaskPage(browser, offer_dependency_url)
         page.go_to_site()
         page.get_cookies()
@@ -42,9 +43,12 @@ class TestOfferDependecy:
         current_url = browser.current_url
         page.click_on_the_button(TotalLocators.BUTTON)
 
-        assert current_url == browser.current_url
+        assert current_url == browser.current_url, add_result_for_case(
+            run_id, case_id, results['failed'])
+        add_result_for_case(run_id, case_id, results['passed'])
 
     def test_create_offer_dependency(self, browser):
+        case_id = 735322
         page = TaskPage(browser, offer_dependency_url)
         page.go_to_site()
         page.get_cookies()
@@ -53,15 +57,20 @@ class TestOfferDependecy:
         page.enter_type_of_value(OD.PRODUCT, 'КЕНО')
         page.click_on_the_button(TotalLocators.BUTTON)
 
-        assert page.check_current_title(offer_name)
+        assert page.check_current_title(offer_name), add_result_for_case(
+            run_id, case_id, results['failed'])
+        add_result_for_case(run_id, case_id, results['passed'])
 
     def test_check_values_offer_dependency(self, browser):
+        case_id = 735323
         page = TaskPage(browser, offer_dependency_url)
         page.go_to_site()
         page.get_cookies()
         page.check_values_from_table(offer_name)
 
-        assert page.check_field_values_from_table()
+        assert page.check_field_values_from_table(), add_result_for_case(
+            run_id, case_id, results['failed'])
+        add_result_for_case(run_id, case_id, results['passed'])
 
     @pytest.mark.skip()
     def test_edit_offer(self, browser):
@@ -73,19 +82,25 @@ class TestOfferDependecy:
         assert page.check_edit(SC.OFFER_COMMENT, 'Комментарий')
 
     def test_remove_offer_dependency_step_one(self, browser):
+        case_id = 735326
         page = TaskPage(browser, offer_dependency_url)
         page.go_to_site()
         page.get_cookies()
         page.check_values_from_table(offer_name)
         page.remove_type_step_one()
 
-        assert page.get_remove_flag()
+        assert page.get_remove_flag(), add_result_for_case(
+            run_id, case_id, results['failed'])
+        add_result_for_case(run_id, case_id, results['passed'])
 
     def test_remove_offer_dependency_step_two(self, browser):
+        case_id = 735327
         page = TaskPage(browser, offer_dependency_url)
         page.go_to_site()
         page.get_cookies()
         page.check_values_from_table(offer_name)
         page.remove_type_step_two()
 
-        assert page.get_name_from_table() != offer_name
+        assert page.get_name_from_table() != offer_name, add_result_for_case(
+            run_id, case_id, results['failed'])
+        add_result_for_case(run_id, case_id, results['passed'])
